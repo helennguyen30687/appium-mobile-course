@@ -33,7 +33,7 @@ public class HybridContext {
             for (String contextHandle : appiumDriver.getContextHandles()) {
                 System.out.println(contextHandle);
             }
-Thread.sleep(3000);
+            Thread.sleep(3000);
             // Switch to Webview
             appiumDriver.context(Contexts.WEB_VIEW);
 
@@ -45,7 +45,7 @@ Thread.sleep(3000);
             List<MenuItemData> menuItemDataList = new ArrayList<>();
 
 
-            if(menuItemsElem.isEmpty()){
+            if (menuItemsElem.isEmpty()) {
                 throw new RuntimeException("[ERR] There is no list items");
             }
 
@@ -53,12 +53,12 @@ Thread.sleep(3000);
                 String itemText = menuItemElem.getText();
                 String itemHref = menuItemElem.getAttribute("href");
 
-                if(itemText.isEmpty()){
-                    menuItemsMap.put("GitHub",itemHref);
-                    menuItemDataList.add(new MenuItemData("GitHub",itemHref));
-                }else {
-                    menuItemsMap.put(itemText,itemHref);
-                    menuItemDataList.add(new MenuItemData(itemText,itemHref));
+                if (itemText.isEmpty()) {
+                    menuItemsMap.put("GitHub", itemHref);
+                    menuItemDataList.add(new MenuItemData("GitHub", itemHref));
+                } else {
+                    menuItemsMap.put(itemText, itemHref);
+                    menuItemDataList.add(new MenuItemData(itemText, itemHref));
                 }
             }
             //Verification
@@ -79,7 +79,8 @@ Thread.sleep(3000);
 
         appiumDriver.quit();
     }
-    public static class MenuItemData{
+
+    public static class MenuItemData {
         private String name;
         private String href;
 
