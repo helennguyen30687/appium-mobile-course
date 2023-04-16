@@ -13,21 +13,24 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import platform.Platform;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public class SwipeHorizontally_Lesson33_Lab16 {
+public class NarrowDownSearchingScope {
     public static void main(String[] args) {
         AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
 
         try {
             // Navigate to Form screen
-            MobileElement navFormScreenBtn = appiumDriver.findElement(MobileBy.AccessibilityId("Swipe"));
+            MobileElement navFormScreenBtn = appiumDriver.findElement(MobileBy.AccessibilityId("Forms"));
             navFormScreenBtn.click();
 
             // Wait until user is on the form screen
             WebDriverWait wait = new WebDriverWait(appiumDriver,10L);
             wait.until(ExpectedConditions.
                     visibilityOfElementLocated(MobileBy.
-                            AndroidUIAutomator("new UiSelector().textContains(\"Swipe horizontal\")")));
+                            AndroidUIAutomator("new UiSelector().textContains(\"Form components\")")));
 
             // Get Mobile window size
             Dimension windowSize = appiumDriver.manage().window().getSize();
@@ -36,36 +39,41 @@ public class SwipeHorizontally_Lesson33_Lab16 {
 
             // Calculate touch points
             int xStartPoint = 50 * screenWidth / 100;
-            int xEndPoint = 10 * screenWidth / 100;
+            int xEndPoint = 50 * screenWidth / 100;
 
-            int yStartPoint = 70 * screenHeight / 100;
-            int yEndPoint = 70 * screenHeight / 100;
+            int yStartPoint = 0 ;
+            int yEndPoint = 10 * screenHeight / 100;
 
             // Convert coordinates -> PointOption
             PointOption startPoint = new PointOption<>().withCoordinates(xStartPoint,yStartPoint);
             PointOption endPoint = new PointOption<>().withCoordinates(xEndPoint,yEndPoint);
 
-            // Swipe from right to left
+            // Using TouchAction to swipe
             TouchAction touchAction = new TouchAction(appiumDriver);
-            for (int time = 0; time < 5; time++) {
-                touchAction
-                        .press(startPoint)
-                        .waitAction(new WaitOptions().withDuration(Duration.ofMillis(500)))
-                        .moveTo(endPoint)
-                        .release()
-                        .perform();
+            touchAction
+                    .press(startPoint)
+                    .waitAction(new WaitOptions().withDuration(Duration.ofMillis(500)))
+                    .moveTo(endPoint)
+                    .release()
+                    .perform();
+
+            List<MobileElement> notificationElems =
+                    appiumDriver.findElements(MobileBy.id("android:id/notification_main_column"));
+            Map<String,String> notificationContents = new HashMap<>();
+            for (MobileElement notificationElem : notificationElems) {
+                MobileElement titleElem = notificationElem.findElement(MobileBy.id("android:id/title"));
+                MobileElement textElem = notificationElem.findElement(MobileBy.id("android:id/text"));
+                notificationContents.put(titleElem.getText().trim(),textElem.getText().trim());
             }
 
-            // Swipe from left to right
-            PointOption startPoint2 = new PointOption<>().withCoordinates(xEndPoint,yEndPoint);
-            PointOption endPoint2 = new PointOption<>().withCoordinates(xStartPoint,yStartPoint);
-            for (int time = 0; time < 5; time++) {
-                touchAction
-                        .press(startPoint2)
-                        .waitAction(new WaitOptions().withDuration(Duration.ofMillis(500)))
-                        .moveTo(endPoint2)
-                        .release()
-                        .perform();
+            // Verification
+            // False negative
+            if(notificationContents.keySet().isEmpty())
+                throw new RuntimeException("No notification");
+
+            for (String title : notificationContents.keySet()) {
+                System.out.println("Title: " + title);
+                System.out.println("Content: " + notificationContents.get(title));
             }
 
             // Click on Btn-active

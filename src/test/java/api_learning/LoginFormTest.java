@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import platform.Platform;
 
-public class LoginFormTest_Lesson32_Lab15 {
+public class LoginFormTest {
     public static void main(String[] args) {
         AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
 

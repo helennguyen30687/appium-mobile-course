@@ -14,7 +14,7 @@ import platform.Platform;
 
 import java.time.Duration;
 
-public class SwipeVertically_Lesson33_Lab16 {
+public class SwipeVertically {
     public static void main(String[] args) {
         AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
 

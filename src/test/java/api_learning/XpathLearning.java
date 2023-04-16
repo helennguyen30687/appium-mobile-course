@@ -8,7 +8,7 @@ import platform.Platform;
 
 import java.util.List;
 
-public class XpathLearning_Lesson32_Lab15 {
+public class XpathLearning {
     public static void main(String[] args) {
         AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
 
