@@ -9,6 +9,7 @@ import java.net.URL;
 
 public class LaunchAppTest {
     public static void main(String[] args) {
+        
         //send request to appium server > ask to launch the app
         AppiumDriver<MobileElement> appiumDriver = null;
 
