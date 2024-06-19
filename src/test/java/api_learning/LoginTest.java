@@ -33,7 +33,6 @@ public class LoginTest {
             continueLoginBtnElem.click();
 
             MobileElement otpLoginInputElem = appiumDriver.findElement(MobileBy.xpath("//android.view.View[contains(@content-desc,'Enter the 4-digit')]/following-sibling::android.widget.EditText"));
-
             //DEBUG PURPOSE
             Thread.sleep(1000);
         } catch (Exception e) {
