@@ -14,7 +14,7 @@ import platform.Platform;
 
 import java.time.Duration;
 
-public class Lession16_UISelector_Vertical_Horizontal {
+public class Lession16_NarrowDown {
     public static void main(String[] args) {
         AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
 
