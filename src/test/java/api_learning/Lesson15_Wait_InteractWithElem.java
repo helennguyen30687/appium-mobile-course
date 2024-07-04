@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import platform.Platform;
 
-public class Lession15_Wait_InteractWithElem {
+public class Lesson15_Wait_InteractWithElem {
     public static void main(String[] args) {
         AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
 
@@ -24,11 +24,10 @@ public class Lession15_Wait_InteractWithElem {
             passwordInputElem.sendKeys("12345678");
             loginBtnElem.click();
 
-            WebDriverWait wait = new WebDriverWait(appiumDriver,5);
+            WebDriverWait wait = new WebDriverWait(appiumDriver, 5);
             wait.until(ExpectedConditions.visibilityOfElementLocated(MobileBy.id("android:id/alertTitle")));
-            MobileElement loginSuccessfulDialogElem=appiumDriver.findElement(MobileBy.id("android:id/alertTitle"));
+            MobileElement loginSuccessfulDialogElem = appiumDriver.findElement(MobileBy.id("android:id/alertTitle"));
             System.out.println(loginSuccessfulDialogElem.getText());
-
 
 
             //DEBUG PURPOSE

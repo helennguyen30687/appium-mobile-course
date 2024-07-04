@@ -14,7 +14,7 @@ import platform.Platform;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lession17_HybridContextCustomExplicityWaitListVerificationScreenshot {
+public class Lesson17_HybridContextCustomExplicityWaitListVerificationScreenshot {
     public static void main(String[] args) {
         AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
 
