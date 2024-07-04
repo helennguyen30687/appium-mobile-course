@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import platform.Platform;
 
-public class Lession15_Wait_InteractWithElem {
+public class Lesson16_UISelector_Vertical_Horizontal {
     public static void main(String[] args) {
         AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
 
