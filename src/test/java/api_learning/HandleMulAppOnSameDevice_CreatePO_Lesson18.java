@@ -13,7 +13,7 @@ import platform.Platform;
 import java.time.Duration;
 import java.util.List;
 
-public class Lesson18_HandleMulAppOnSameDevice_CreatePO {
+public class HandleMulAppOnSameDevice_CreatePO_Lesson18 {
     public static void main(String[] args) {
         AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
         try {

@@ -5,11 +5,11 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
 
-public class BottomNavComponent {
+public class BottomNavComponent_Lesson18 {
     private final AppiumDriver<MobileElement> appiumDriver;
     private  final static By loginIconSel= MobileBy.AccessibilityId("Login");
 
-    public BottomNavComponent(AppiumDriver<MobileElement> appiumDriver) {
+    public BottomNavComponent_Lesson18(AppiumDriver<MobileElement> appiumDriver) {
         this.appiumDriver = appiumDriver;
     }
 

@@ -1,29 +1,30 @@
-package models.components.login;
+package models.pages;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
 
-public class LoginFormComponent {
+public class LoginScreenMod01_Lesson18 {
     private final AppiumDriver<MobileElement> appiumDriver;
     private final static By usernameSel= MobileBy.AccessibilityId("input-email");
     private final static By passwordSel= MobileBy.AccessibilityId("input-password");
     private final static By loginBtnSel= MobileBy.AccessibilityId("button-LOGIN");
 
-    public LoginFormComponent(AppiumDriver<MobileElement> appiumDriver) {
+    public LoginScreenMod01_Lesson18(AppiumDriver<MobileElement> appiumDriver) {
         this.appiumDriver = appiumDriver;
     }
 
-    public void inputUsername(String usernameTxt){
-        if(!usernameTxt.isEmpty()) appiumDriver.findElement(usernameSel).sendKeys(usernameTxt);
+    public MobileElement userNameElem(){
+        return appiumDriver.findElement(usernameSel);
     }
 
-    public void inputPassword(String passwordTxt){
-        if(!passwordTxt.isEmpty()) appiumDriver.findElement(passwordSel).sendKeys(passwordTxt);
+    public MobileElement passwordElem(){
+        return appiumDriver.findElement(passwordSel);
     }
 
-    public void clickLoginBtn(){
-        appiumDriver.findElement(loginBtnSel).click();
+    public MobileElement loginBtnElem(){
+        return appiumDriver.findElement(loginBtnSel);
     }
+
 }

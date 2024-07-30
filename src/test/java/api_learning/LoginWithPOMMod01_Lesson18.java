@@ -4,10 +4,10 @@ import driver.DriverFactory;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
-import models.pages.Lesson18_LoginScreenMod03;
+import models.pages.LoginScreenMod01_Lesson18;
 import platform.Platform;
 
-public class Lesson18_LoginWithPOMMod03 {
+public class LoginWithPOMMod01_Lesson18 {
     public static void main(String[] args) {
         AppiumDriver<MobileElement> appiumDriver= DriverFactory.getDriver(Platform.ANDROID);
 
@@ -15,10 +15,10 @@ public class Lesson18_LoginWithPOMMod03 {
             MobileElement navLoginScreenBtnElem = appiumDriver.findElement(MobileBy.AccessibilityId("Login"));
             navLoginScreenBtnElem.click();
 
-            Lesson18_LoginScreenMod03 loginScreen = new Lesson18_LoginScreenMod03(appiumDriver);
-            loginScreen.inputUsername ("huong@gmail.com")
-                        .inputPassword("12354678")
-                        .clickLoginBtn();
+            LoginScreenMod01_Lesson18 loginScreen = new LoginScreenMod01_Lesson18(appiumDriver);
+            loginScreen.userNameElem().sendKeys("huong@gmail.com");
+            loginScreen.passwordElem().sendKeys("12354678");
+            loginScreen.loginBtnElem().click();
 
         }catch (Exception e){
             e.printStackTrace();

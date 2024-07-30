@@ -5,28 +5,25 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
 
-public class Lesson18_LoginScreenMod03 {
+public class LoginScreenMod02_Lesson18 {
     private final AppiumDriver<MobileElement> appiumDriver;
     private final static By usernameSel= MobileBy.AccessibilityId("input-email");
     private final static By passwordSel= MobileBy.AccessibilityId("input-password");
     private final static By loginBtnSel= MobileBy.AccessibilityId("button-LOGIN");
 
-    public Lesson18_LoginScreenMod03(AppiumDriver<MobileElement> appiumDriver) {
+    public LoginScreenMod02_Lesson18(AppiumDriver<MobileElement> appiumDriver) {
         this.appiumDriver = appiumDriver;
     }
 
-    public Lesson18_LoginScreenMod03 inputUsername(String usernameTxt){
+    public void inputUsername(String usernameTxt){
         if(!usernameTxt.isEmpty()) appiumDriver.findElement(usernameSel).sendKeys(usernameTxt);
-        return this;
     }
 
-    public Lesson18_LoginScreenMod03 inputPassword(String passwordTxt){
+    public void inputPassword(String passwordTxt){
         if(!passwordTxt.isEmpty()) appiumDriver.findElement(passwordSel).sendKeys(passwordTxt);
-        return this;
     }
 
     public void clickLoginBtn(){
         appiumDriver.findElement(loginBtnSel).click();
     }
-
-}
+  }

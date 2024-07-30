@@ -12,7 +12,7 @@ import platform.Platform;
 
 import java.io.File;
 
-public class Lesson17_TakingScreenshot {
+public class TakingScreenshot_Lesson17 {
     public static void main(String[] args) {
         AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
 

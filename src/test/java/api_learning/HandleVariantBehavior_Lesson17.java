@@ -8,7 +8,7 @@ import io.appium.java_client.internal.CapabilityHelpers;
 import org.openqa.selenium.Capabilities;
 import platform.Platform;
 
-public class Lesson17_HandleVariantBehavior implements MobileCapabilityTypeEx {
+public class HandleVariantBehavior_Lesson17 implements MobileCapabilityTypeEx {
     public static void main(String[] args) {
         AppiumDriver<MobileElement> appiumDriver= DriverFactory.getDriver(Platform.ANDROID);
 
